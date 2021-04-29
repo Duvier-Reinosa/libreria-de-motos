@@ -163,8 +163,8 @@ int leerTransmision(int n){
 //			printf("\n-Amarillas: %i", nAmarillo);								
 //}
 
-int imprimirDatos(int& n, vehiculo moto){
-	printf("\n                         Marca: %s \n", moto.marca);
+int imprimirDatos(int& n, vehiculo *moto){
+	printf("\n                         Marca: %s \n", &moto->marca);
 	
 //			for(int i = 0; i < n; i++){
 //				printf("\n--------------------------------Salida de datos--------------------------------\n");
@@ -195,72 +195,72 @@ int entrarDatos(vehiculo *moto, vehiculo *mAux, char& seguir, int& stateI, float
 			moto = (vehiculo *) malloc(sizeof(vehiculo));
 			printf("\n--------------------------------Entrada de datos--------------------------------\n");
 			printf("\n                         [%i]Marca: ", n); gets(moto->marca); fflush(stdin); 
-			printf("\n                         [%i]Modelo: ",n); gets(moto->modelo); fflush(stdin);
-			printf("\n                         [%i]Numero de motor: ",n); gets(moto->nMotor); fflush(stdin);	
-			printf("\n                         [%i]Numero de chasis: ",n); gets(moto->nChasise); fflush(stdin);
-			printf("\n                            Tipo de transmision: ");
-			printf("\n                            1.  Automatica");
-			printf("\n                            2.  Semiautomatica");
-			printf("\n                            3.  Manual");
-			printf("\n                         [%i]Transmision: ",n); 
-				moto->transmision = leerTransmision(n);
-//			switch (moto->transmision)
-//    			{
-//    			case 1: automatica++; break;
-//			    case 2: semiautomatica++; break;
-//			    case 3: manual++; break;
-//			    }
-			if(moto->transmision > 1){
-				printf("\n                         [%i]Velocidades: ",n); 	
-				moto->velocidades = obtenerVelocidades(n);
-			}	
-			printf("\n                         [%i]Cilindraje: ",n);
-				scanf("%d", &stateI); 
-				fflush(stdin);	
-				moto->cilindraje = stateI;
-			printf("\n                         [%i]Anyo de fabricacion: ",n); 
-				moto->anyo = obtenerAnyo(n);
-			printf("\n                            Colores");
-			printf("\n                             1. Negro");
-			printf("\n                             2. Azul");
-			printf("\n                             3. Marron");
-			printf("\n                             4. Gris");
-			printf("\n                             5. Verde");
-			printf("\n                             6. Naranja");
-			printf("\n                             7. Rosa");
-			printf("\n                             8. Purpura");
-			printf("\n                             9. Rojo");
-			printf("\n                             10. Blanco");
-			printf("\n                             11. Amarillo");
-			printf("\n                         [%i]Color: ",n); 
-				moto->color = obtenerColor(n);
-				
-//				switch (moto->color)
-//				    {
-//				    case 1: nNegro++; break;
-//				    case 2: nAzul++; break;
-//				    case 3: nMarron++; break;
-//				    case 4: nGris++; break;
-//				    case 5: nVerde++; break;
-//				    case 6: nNaranja++; break;
-//				    case 7: nRosa++; break;
-//				    case 8: nPurpura++; break;
-//				    case 9: nRojo++; break;
-//				    case 10: nBlanco++; break;
-//				    case 11: nAmarillo++; break;
-//				    }
-			printf("\n                         [%i]Peso: ",n); 
-				scanf("%f", &stateF);
-				fflush(stdin);
-				moto->peso = stateF;
-			printf("\n                         [%i]Torque: ",n); 
-				scanf("%d", &stateI);
-				fflush(stdin);
-				moto->torque = stateI;
-			printf("\n                         [%i]Capacidad del tanque: ",n); 
-			scanf("%f", &stateF);
-				fflush(stdin);
-				moto->capacidadDelTanque = stateF;
+//			printf("\n                         [%i]Modelo: ",n); gets(moto->modelo); fflush(stdin);
+//			printf("\n                         [%i]Numero de motor: ",n); gets(moto->nMotor); fflush(stdin);	
+//			printf("\n                         [%i]Numero de chasis: ",n); gets(moto->nChasise); fflush(stdin);
+//			printf("\n                            Tipo de transmision: ");
+//			printf("\n                            1.  Automatica");
+//			printf("\n                            2.  Semiautomatica");
+//			printf("\n                            3.  Manual");
+//			printf("\n                         [%i]Transmision: ",n); 
+//				moto->transmision = leerTransmision(n);
+////			switch (moto->transmision)
+////    			{
+////    			case 1: automatica++; break;
+////			    case 2: semiautomatica++; break;
+////			    case 3: manual++; break;
+////			    }
+//			if(moto->transmision > 1){
+//				printf("\n                         [%i]Velocidades: ",n); 	
+//				moto->velocidades = obtenerVelocidades(n);
+//			}	
+//			printf("\n                         [%i]Cilindraje: ",n);
+//				scanf("%d", &stateI); 
+//				fflush(stdin);	
+//				moto->cilindraje = stateI;
+//			printf("\n                         [%i]Anyo de fabricacion: ",n); 
+//				moto->anyo = obtenerAnyo(n);
+//			printf("\n                            Colores");
+//			printf("\n                             1. Negro");
+//			printf("\n                             2. Azul");
+//			printf("\n                             3. Marron");
+//			printf("\n                             4. Gris");
+//			printf("\n                             5. Verde");
+//			printf("\n                             6. Naranja");
+//			printf("\n                             7. Rosa");
+//			printf("\n                             8. Purpura");
+//			printf("\n                             9. Rojo");
+//			printf("\n                             10. Blanco");
+//			printf("\n                             11. Amarillo");
+//			printf("\n                         [%i]Color: ",n); 
+//				moto->color = obtenerColor(n);
+//				
+////				switch (moto->color)
+////				    {
+////				    case 1: nNegro++; break;
+////				    case 2: nAzul++; break;
+////				    case 3: nMarron++; break;
+////				    case 4: nGris++; break;
+////				    case 5: nVerde++; break;
+////				    case 6: nNaranja++; break;
+////				    case 7: nRosa++; break;
+////				    case 8: nPurpura++; break;
+////				    case 9: nRojo++; break;
+////				    case 10: nBlanco++; break;
+////				    case 11: nAmarillo++; break;
+////				    }
+//			printf("\n                         [%i]Peso: ",n); 
+//				scanf("%f", &stateF);
+//				fflush(stdin);
+//				moto->peso = stateF;
+//			printf("\n                         [%i]Torque: ",n); 
+//				scanf("%d", &stateI);
+//				fflush(stdin);
+//				moto->torque = stateI;
+//			printf("\n                         [%i]Capacidad del tanque: ",n); 
+//			scanf("%f", &stateF);
+//				fflush(stdin);
+//				moto->capacidadDelTanque = stateF;
 			printf("\n                         ¿Deseas continuar?: (S/N)");
 			seguir = getchar(); fflush(stdin); 
 //			orden[n] = n;
@@ -304,9 +304,11 @@ int main (){
 		indiceMenu = menu(indiceMenu);
 				
 		switch(indiceMenu){
-			case 1 : entrarDatos(moto, mAux, seguir, stateI, stateF, n);
+			case 1 : moto = (vehiculo *) malloc(sizeof(vehiculo));
+			printf("\n--------------------------------Entrada de datos--------------------------------\n");
+			printf("\n                         [%i]Marca: ", n); gets(moto->marca); fflush(stdin); 
 			break;
-			case 2 : imprimirDatos(n, *moto);
+			case 2 : imprimirDatos(n, moto);
 			break;
 //			case 3 : imprimirEstadistica();
 //			case 4 : ordenarDatos(orden, marcas, n);
